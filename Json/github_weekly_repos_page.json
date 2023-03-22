@@ -1,0 +1,67 @@
+{
+    "parent": {
+        "database_id": "{{DATABASE_ID}}"
+    },
+    "properties": {
+        "Name": {
+            "title": [
+                {
+                    "text": {
+                        "content": "New Media Article"
+                    }
+                }
+            ]
+        },
+        "Description": {
+            "rich_text": [
+                {
+                    "type": "text",
+                    "text": {
+                        "content": " "
+                    },
+                    "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                    },
+                    "plain_text": " "
+                }
+            ]
+        },
+        "Link": {
+            "url": "https://www.nytimes.com/2018/10/21/opinion/who-will-teach-silicon-valley-to-be-ethical.html"
+        },
+        "Avatar": {
+            "files": [
+              {
+                "name": "Avatar",
+                "external": {
+                  "url": ""
+                }
+              }
+            ]
+        },
+        "Number_of_Star": {
+            "number": 0
+        },
+        "Language": {
+            "rich_text": [
+                {
+                    "type": "text",
+                    "text": {
+                        "content": ""
+                    },
+                    "plain_text": ""
+                }
+            ]
+        },
+        "Update_Date": {
+            "date": {
+                "start": ""
+            }
+        }
+    }
+}

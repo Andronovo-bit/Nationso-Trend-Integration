@@ -1,0 +1,39 @@
+{
+    "parent": {
+        "type": "page_id",
+        "page_id": "__YOUR_PAGE_ID__"
+    },
+    "title": [
+        {
+            "type": "text",
+            "text": {
+                "content": "Trend_List",
+                "link": null
+            }
+        }
+    ],
+    "is_inline": true,
+    "properties": {
+        "Name": {
+            "title": {}
+        },
+        "Description": {
+            "rich_text": {}
+        },
+        "Link": {
+            "url": {}
+        },
+        "Number_of_Star": {
+            "number": {}
+        },
+        "Language": {
+            "rich_text": {}
+        },
+        "Update_Date": {
+            "date": {}
+        },
+        "Avatar": {
+            "files": {}
+        }
+    }
+}
