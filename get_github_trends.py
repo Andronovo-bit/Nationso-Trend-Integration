@@ -23,7 +23,7 @@ class GithubTrend:
         response = requests.get("https://api.github.com/search/repositories?q=stars:>1&sort=stars&order=desc", headers=self.headers, params=self.params)
         if response.status_code == 200:
             data = response.json()
-            with open(f"Json/github_trends_{current_date}.json", "w") as f:
+            with open(f"Json/github/github_trends_{current_date}.json", "w") as f:
                 json.dump(data, f)
 
 
