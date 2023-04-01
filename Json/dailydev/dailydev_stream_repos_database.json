@@ -1,0 +1,39 @@
+{
+    "parent": {
+        "type": "page_id",
+        "page_id": "__YOUR_PAGE_ID__"
+    },
+    "title": [
+        {
+            "type": "text",
+            "text": {
+                "content": "Stream_List",
+                "link": null
+            }
+        }
+    ],
+    "is_inline": true,
+    "properties": {
+        "Name": {
+            "title": {}
+        },
+        "Source": {
+            "rich_text": {}
+        },
+        "Link": {
+            "url": {}
+        },
+        "Tags": {
+            "rich_text": {}
+        },
+        "Type": {
+            "rich_text": {}
+        },
+        "Created_Date": {
+            "date": {}
+        },
+        "Image": {
+            "files": {}
+        }
+    }
+}
