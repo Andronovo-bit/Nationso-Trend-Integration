@@ -1,0 +1,23 @@
+{
+    "parent": {
+        "type": "page_id",
+        "page_id": "__YOUR_PAGE_ID__"
+    },
+    "title": [
+        {
+            "type": "text",
+            "text": {
+                "content": "Medium Recommened Articles",
+                "link": null
+            }
+        }
+    ],
+    "properties": {
+        "Name": {
+            "title": {}
+        },
+        "Date": {
+            "date": {}
+        }
+    }
+}

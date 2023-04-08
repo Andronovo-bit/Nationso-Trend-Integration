@@ -1,0 +1,21 @@
+{
+    "parent": {
+        "database_id": "__YOUR_DATABASE_ID__"
+    },
+    "properties": {
+        "Name": {
+            "title": [
+                {
+                    "text": {
+                        "content": "Trending"
+                    }
+                }
+            ]
+        },
+        "Date": {
+            "date": {
+                "start": null
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+{
+    "parent": {
+        "type": "page_id",
+        "page_id": "__YOUR_PAGE_ID__"
+    },
+    "title": [
+        {
+            "type": "text",
+            "text": {
+                "content": "Stream_List",
+                "link": null
+            }
+        }
+    ],
+    "is_inline": true,
+    "properties": {
+        "Name": {
+            "title": {}
+        },
+        "Link": {
+            "url": {}
+        },
+        "Reason": {
+            "rich_text": {}
+        },
+        "Creator_Name": {
+            "rich_text": {}
+        },
+        "Tags": {
+            "rich_text": {}
+        },
+        "Clap_Count": {
+            "number": {}
+        },
+        "Reading_Time": {
+            "number": {}
+        },
+        "Published_Date": {
+            "date": {}
+        },
+        "Image": {
+            "files": {}
+        }
+    }
+}

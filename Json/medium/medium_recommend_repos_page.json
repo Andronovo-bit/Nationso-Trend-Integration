@@ -1,0 +1,81 @@
+{
+    "parent": {
+        "database_id": "{{DATABASE_ID}}"
+    },
+    "properties": {
+        "Name": {
+            "title": [
+                {
+                    "text": {
+                        "content": "New Media Stream"
+                    }
+                }
+            ]
+        },
+        "Link": {
+            "url": ""
+        },
+        "Reason": {
+            "rich_text": [
+                {
+                    "type": "text",
+                    "text": {
+                        "content": " "
+                    },
+                    "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                    },
+                    "plain_text": " "
+                }
+            ]
+        },
+        "Image": {
+            "files": [
+              {
+                "name": "Avatar",
+                "external": {
+                  "url": ""
+                }
+              }
+            ]
+        },
+        "Tags": {
+            "rich_text": [
+                {
+                    "type": "text",
+                    "text": {
+                        "content": ""
+                    },
+                    "plain_text": ""
+                }
+            ]
+        },
+        "Creator_Name": {
+            "rich_text": [
+                {
+                    "type": "text",
+                    "text": {
+                        "content": ""
+                    },
+                    "plain_text": ""
+                }
+            ]
+        },
+        "Clap_Count": {
+            "number": 0
+        },
+        "Reading_Time": {
+            "number": 0
+        },
+        "Published_Date": {
+            "date": {
+                "start": ""
+            }
+        }
+    }
+}
