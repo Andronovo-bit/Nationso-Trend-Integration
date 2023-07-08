@@ -1,5 +1,6 @@
 import json
 import requests
+import pathlib
 
 class DailyDevScraper:
     
@@ -143,10 +144,23 @@ class DailyDevScraper:
         }
 
     def scrape(self, filename='daily.json'):
-        response = requests.post("https://app.daily.dev/api/graphql", headers=self.headers, json=self.graphql_data)
-        if response.status_code == 200:
+        # Use requests.Session to reuse the connection and improve performance
+        session = requests.Session()
+        session.headers.update(self.headers)
+
+        # Use pathlib to handle paths
+        file_path = pathlib.Path(filename)
+
+        # Use a try-except block to handle errors
+        try:
+            response = session.post("https://app.daily.dev/api/graphql", json=self.graphql_data)
+            response.raise_for_status()
             data = response.json()
-            with open(filename, "w") as f:
+
+            # Use the json module's dump method to write to the file
+            with file_path.open("w") as f:
                 json.dump(data, f)
-        else:
-            print(f"Request failed: {response.status_code}")
+        except requests.exceptions.RequestException as e:
+            # Print the error message if the request was unsuccessful
+            print(f"Request failed: {e}")
+

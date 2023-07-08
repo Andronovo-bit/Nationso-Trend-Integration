@@ -8,9 +8,9 @@ from get_medium_recommended import MediumScraper
 from integration_notion_api import NotionAPI
 from json_database import JsonDatabase
 
-YOUR_NOTIONAPI_TOKEN =  ""
-YOUR_NOTIONAPI_ACCESS_PAGE_ID = ""
-YOUR_DAILY_DEV_COOKIE = ""
+YOUR_NOTIONAPI_TOKEN =  "YOUR_NOTIONAPI_TOKEN"
+YOUR_NOTIONAPI_ACCESS_PAGE_ID = "YOUR_NOTIONAPI_ACCESS_PAGE_ID"
+YOUR_DAILY_DEV_COOKIE = "YOUR_DAILY_DEV_COOKIE"
 
 def load_json(file_path):
     with open(file_path) as f:
@@ -93,6 +93,7 @@ def create_github_trends(notion_api):
         repos_page_template["properties"]["Update_Date"]["date"]["start"] = item['updated_at']
         repos_page_template["properties"]["Avatar"]["files"][0]["external"]["url"] = item['owner']['avatar_url']
         notion_api.create_page(repos_page_template)
+        print(f"Github weekly repos page created for {item['full_name']}")
         time.sleep(0.1)
 
 def create_dailydev_stream(notion_api):
@@ -151,6 +152,7 @@ def create_dailydev_stream(notion_api):
         repos_page_json["properties"]["Created_Date"]["date"]["start"] = node.get('createdAt','').split('T')[0] or ""
         repos_page_json["properties"]["Image"]["files"][0]["external"]["url"] = node.get('image') or ""
         notion_api.create_page(repos_page_json)
+        print(f"DailyDev stream page created for {node.get('title') or ''}")
         time.sleep(0.1)
 
 def create_medium_recommend(notion_api):
@@ -213,6 +215,7 @@ def create_medium_recommend(notion_api):
         repos_page_template["properties"]["Published_Date"]["date"]["start"] = datetime.fromtimestamp(item['date']/1000.0).strftime('%Y-%m-%d %H:%M:%S') 
         repos_page_template["properties"]["Image"]["files"][0]["external"]["url"] = item['previewImage']
         notion_api.create_page(repos_page_template)
+        print(f"Medium recommend page created for {item['name']}")
         time.sleep(0.1)
 
 if __name__ == "__main__":

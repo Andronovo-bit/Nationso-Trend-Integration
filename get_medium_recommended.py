@@ -1,9 +1,10 @@
 import json
 import requests
 from datetime import datetime
+import pathlib
 
 URL = "https://medium.com/_/graphql"
-YOUR_COOKIE = ""
+YOUR_COOKIE = "YOUR_MEDIUM_COOKIE"
 VARIABLES = {"forceRank": True, "paging": {"limit": 10}}
 
 class MediumScraper:
@@ -23,15 +24,23 @@ class MediumScraper:
         }
         
     def scrape(self):
+        # Use requests.Session to reuse the connection and improve performance
+        session = requests.Session()
+        session.headers.update(self.headers)
+
+        # Use f-strings for formatting and pathlib for handling paths
         current_date = datetime.now().strftime("%Y-%m-%d")
-        response = requests.post(self.url, headers=self.headers, json=self.json_data)
-        if response.status_code == 200:
+        file_path = pathlib.Path(f"Json/medium/medium_recommended_{current_date}.json")
+
+        # Use a try-except block to handle errors
+        try:
+            response = session.post(self.url, json=self.json_data)
+            response.raise_for_status()
             data = response.json()
-            # Extract the fields from each item in the "items" list and create a new JSON object    
-            post_data = []
-            for item in data["data"]["webRecommendedFeed"]["items"]:
-                post = item["post"]
-                post_dict = {
+
+            # Use list comprehension to create the post data list
+            post_data = [
+                {
                     "name": post["title"],
                     "reason": item["reasonString"],
                     "username": post["creator"]["username"],
@@ -39,16 +48,19 @@ class MediumScraper:
                     "clapCount": post["clapCount"],
                     "readingTime": post["readingTime"],
                     "tags": [tag["displayTitle"] for tag in post["tags"]],
-                    "previewImage": "https://miro.medium.com/v2/resize:fill:112:112/{}".format(post["previewImage"]["id"]),
+                    "previewImage": f"https://miro.medium.com/v2/resize:fill:112:112/{post['previewImage']['id']}",
                     "date": post["latestPublishedAt"],
                 }
-                post_data.append(post_dict)
+                for item in data["data"]["webRecommendedFeed"]["items"]
+                for post in [item["post"]]
+            ]
 
-            # Return the post data list
-            with open(f"Json/medium/medium_recommended_{current_date}.json", "w") as f:
+            # Use the json module's dump method to write to the file
+            with file_path.open("w") as f:
                 json.dump(post_data, f)
             return post_data
-        else:
+        except requests.exceptions.RequestException as e:
             # Raise an exception if the request was unsuccessful
-            raise Exception(f"Request failed: {response.status_code}")
+            raise Exception(f"Request failed: {e}")
+
 
