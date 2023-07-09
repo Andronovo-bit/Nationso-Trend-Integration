@@ -32,13 +32,30 @@ YOUR_GITHUB_TOKEN=your_github_token
 YOUR_MEDIUM_COOKIE=your_medium_token
 ```
 
+We first create an internal api from [ Notion My Integrations](https://www.notion.so/my-integrations). After creating it, we use the "Internal Integration Secret" anahrat in the secrets section for "YOUR_NOTIONAPI_TOKEN".
+
+Then we create a page in a Nation for integration. From the 3 dots(...) at the top right, we go to the "Connection" section from the page settings. Here we select the api we created before by saying "add connection". (It is important to have read-write permissions here)
+
+We use the id in the link of the page as "YOUR_NOTIONAPI_ACCESS_PAGE_ID".
+
 Then, you can run the main script with the following command:
 
 ```bash
 python main.py
 ```
 
-This will start fetching the content from the sources and saving them as nation.so pages. You can check the progress and status of the script in the terminal output. You can also customize some parameters of the script by editing the `config.py` file in the project directory.
+This will start fetching the content from the sources and saving them as nation.so pages. You can check the progress and status of the script in the terminal output. You can also customize some parameters of the script by editing the `Json\db\data.json` file in the project directory.
+
+## ScreenShots
+![Integration Page](https://i.ibb.co/XWtDVnR/Ekran-g-r-nt-s-2023-07-09-182652.png)
+![Github List](https://i.ibb.co/gDFTwK3/Ekran-g-r-nt-s-2023-07-09-182710.png)
+![Github Table](https://i.ibb.co/JpzJD4r/Ekran-g-r-nt-s-2023-07-09-182746.png)
+![DailyDev List](https://i.ibb.co/CMjmBG1/Ekran-g-r-nt-s-2023-07-09-182801.png)
+![DailyDev Table](https://i.ibb.co/X8zRxfK/Ekran-g-r-nt-s-2023-07-09-182826.png)
+![Medium List](https://i.ibb.co/VVhk4V9/Ekran-g-r-nt-s-2023-07-09-183322.png)
+![Medium Table](https://i.ibb.co/PDrZs1q/Ekran-g-r-nt-s-2023-07-09-182858.png)
+![Medium Detail](https://i.ibb.co/fp8D5jn/Ekran-g-r-nt-s-2023-07-09-184904.png)
+
 
 ## License
 
