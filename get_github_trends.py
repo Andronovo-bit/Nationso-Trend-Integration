@@ -2,14 +2,11 @@ import json
 import requests
 from datetime import datetime
 import pathlib
-
-YOUR_GITHUB_TOKEN = "YOUR_GITHUB_TOKEN"
-
 class GithubTrend:
-    def __init__(self, language='any', date_range='weekly'):
+    def __init__(self, token, language='any', date_range='weekly'):
         self.language = language
         self.date_range = date_range
-        self.token = YOUR_GITHUB_TOKEN
+        self.token = token
         self.headers = {
             "Authorization": f"token {self.token}",
             "Accept": "application/vnd.github.v3+json"

@@ -1,16 +1,20 @@
-import time
-import json
+import os, json, time
 from datetime import datetime
-
 from get_github_trends import GithubTrend
 from get_dailydev_stream import DailyDevScraper
 from get_medium_recommended import MediumScraper
 from integration_notion_api import NotionAPI
 from json_database import JsonDatabase
+from dotenv import load_dotenv
 
-YOUR_NOTIONAPI_TOKEN =  "YOUR_NOTIONAPI_TOKEN"
-YOUR_NOTIONAPI_ACCESS_PAGE_ID = "YOUR_NOTIONAPI_ACCESS_PAGE_ID"
-YOUR_DAILY_DEV_COOKIE = "YOUR_DAILY_DEV_COOKIE"
+load_dotenv()
+
+YOUR_NOTIONAPI_TOKEN =  os.getenv("YOUR_NOTIONAPI_TOKEN")
+YOUR_NOTIONAPI_ACCESS_PAGE_ID = os.getenv("YOUR_NOTIONAPI_ACCESS_PAGE_ID")
+YOUR_DAILY_DEV_COOKIE = os.getenv("YOUR_DAILY_DEV_COOKIE")
+YOUR_MEDIUM_COOKIE = os.getenv("YOUR_MEDIUM_COOKIE")
+YOUR_GITHUB_TOKEN = os.getenv("YOUR_GITHUB_TOKEN")
+
 
 def load_json(file_path):
     with open(file_path) as f:
@@ -75,7 +79,7 @@ def create_github_trends(notion_api):
         return
 
     # Fetch trending repositories
-    github_trend = GithubTrend()
+    github_trend = GithubTrend(YOUR_GITHUB_TOKEN)
     github_trend.fetch_trending_repositories()
     
     # Load response data
@@ -196,7 +200,7 @@ def create_medium_recommend(notion_api):
         return
 
     # Fetch recommend articles from Medium
-    medium_scraper = MediumScraper()
+    medium_scraper = MediumScraper(YourCookie=YOUR_MEDIUM_COOKIE)
     medium_scraper.scrape()
 
     # Load response data

@@ -4,13 +4,12 @@ from datetime import datetime
 import pathlib
 
 URL = "https://medium.com/_/graphql"
-YOUR_COOKIE = "YOUR_MEDIUM_COOKIE"
 VARIABLES = {"forceRank": True, "paging": {"limit": 10}}
 
 class MediumScraper:
-    def __init__(self):
+    def __init__(self, YourCookie):
         self.url = URL
-        self.cookie = YOUR_COOKIE
+        self.cookie = YourCookie
         self.json_data = {
             "operationName": "WebInlineRecommendedFeedQuery",
             "variables": VARIABLES,
@@ -20,7 +19,7 @@ class MediumScraper:
             "Content-Type": "application/json",
             "User-Agent": "Mozilla/5.0",
             "accept": "*/*",
-            "cookie": YOUR_COOKIE,
+            "cookie": YourCookie,
         }
         
     def scrape(self):

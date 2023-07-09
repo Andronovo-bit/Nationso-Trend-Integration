@@ -28,8 +28,8 @@ To use Nationso Trend Integration, you need to have accounts on dailydev, github
 YOUR_DAILY_DEV_COOKIE=your_dailydev_cookie
 YOUR_NOTIONAPI_TOKEN=your_nation_api_key
 YOUR_NOTIONAPI_ACCESS_PAGE_ID=your_notion_api_access_page_id
-YOUR_GITHUB_TOKEN=your_github_token (in get_github_trends.py)
-YOUR_COOKIE=your_medium_token (in get_medium_recommend.py)
+YOUR_GITHUB_TOKEN=your_github_token
+YOUR_MEDIUM_COOKIE=your_medium_token
 ```
 
 Then, you can run the main script with the following command:
